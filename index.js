@@ -11,7 +11,7 @@ require('dotenv').config();
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
@@ -32,6 +32,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 const port = process.env.PORT || 5000
 
+console.log(process.env.MONGO_URL)
 
 app.listen(port, () => {
     console.log('Server is running')
