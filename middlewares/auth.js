@@ -9,6 +9,7 @@ const isAuthenticate = async (req, res, next) => {
 
         if (!token) {
             res.status(404).json({
+                success: false,
                 message: "Login First"
             })
         }

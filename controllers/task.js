@@ -12,8 +12,8 @@ const createTask = async (req, res) => {
 
         const newTask = new taskModel({
             title: title,
-            description: description,
-            user: req.user
+            description: description, 
+            user_id: req.user
         })
 
         newTask.save();
@@ -28,7 +28,7 @@ const createTask = async (req, res) => {
 const getAllTask = async (req, res) => {
 
     try {
-        const taskList = await taskModel.find({ user: req.user._id })
+        const taskList = await taskModel.find({ user_id: req.user._id })
         res.json(taskList)
     } catch (error) {
         console.log(error)
