@@ -7,6 +7,7 @@ const sendCookie = require('../utils/features')
 
 
 const getMyProfile = async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         if (!req.user) {
@@ -23,6 +24,7 @@ const getMyProfile = async (req, res, next) => {
 
 
 const login = async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     try {
         const { email, password } = req.body;
 
@@ -54,6 +56,7 @@ const login = async (req, res, next) => {
 
 
 const register = async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const { name, email, password } = req.body;
@@ -80,6 +83,7 @@ const register = async (req, res, next) => {
 
 
 const logout = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.cookie('token', '', {
         expires: new Date(Date.now()),
         sameSite: process.env.NODE_ENV == "Development" ? "lax" : "none",
