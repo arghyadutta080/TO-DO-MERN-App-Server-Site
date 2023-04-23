@@ -82,8 +82,8 @@ const register = async (req, res, next) => {
 const logout = async (req, res) => {
     res.cookie('token', '', {
         expires: new Date(Date.now()),
-        sameSite: process.env.NODE_ENV == Development ? "lax" : "none",
-        secure: process.env.NODE_ENV == Development ? false : true
+        sameSite: process.env.NODE_ENV == "Development" ? "lax" : "none",
+        secure: process.env.NODE_ENV == "Development" ? false : true
     }).json({
         message: "logout"
     })
