@@ -11,9 +11,7 @@ require('dotenv').config();
 app.use(express.json())
 app.use(cookieParser())
 
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 
 app.use('/user', userRoute);
 app.use('/task', taskRoute);
