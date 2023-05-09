@@ -7,7 +7,7 @@ const sendCookie = require('../utils/features')
 
 
 const getMyProfile = async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         if (!req.user) {
@@ -15,7 +15,7 @@ const getMyProfile = async (req, res, next) => {
                 message: "Login First"
             })
         }
-        res.status(201).json(user)
+        res.status(201).json(req.user)
     } catch (error) {
         console.log(error)
     }
@@ -24,7 +24,7 @@ const getMyProfile = async (req, res, next) => {
 
 
 const login = async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     try {
         const { email, password } = req.body;
 
@@ -56,14 +56,14 @@ const login = async (req, res, next) => {
 
 
 const register = async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const { name, email, password } = req.body;
         const user = await userModel.findOne({ email })
 
         if (user) {
-            res.status(404).json({
+            res.status(400).json({
                 success: false,
                 message: "User already exist"
             })
@@ -83,7 +83,7 @@ const register = async (req, res, next) => {
 
 
 const logout = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.cookie('token', '', {
         expires: new Date(Date.now()),
         sameSite: process.env.NODE_ENV == "Development" ? "lax" : "none",

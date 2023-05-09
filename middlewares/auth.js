@@ -14,7 +14,7 @@ const isAuthenticate = async (req, res, next) => {
             })
         }
 
-        const decode = jwt.verify(token, process.env.JWT_SECRET)
+        const decode = jwt.verify(token, process.env.JWT_SECRET)  // will return an onject {user_id: "id"}
         const user_id = decode.user_id;
         req.user = await userModel.findById(user_id)
         next()

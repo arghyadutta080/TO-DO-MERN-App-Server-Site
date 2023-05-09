@@ -6,7 +6,7 @@ const sendCookie = require('../utils/features')
 
 
 const createTask = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const { title, description } = req.body;
@@ -27,7 +27,7 @@ const createTask = async (req, res) => {
 
 
 const getAllTask = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const taskList = await taskModel.find({ user_id: req.user._id })
@@ -40,7 +40,7 @@ const getAllTask = async (req, res) => {
 
 
 const updateTask = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const task = await taskModel.findById(req.params.id)
@@ -65,7 +65,7 @@ const updateTask = async (req, res) => {
 
 
 const delTask = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
 
     try {
         const task = await taskModel.findById(req.params.id)

@@ -3,9 +3,9 @@ const { register, login, logout, getMyProfile } = require("../controllers/user")
 const isAuthenticate = require('../middlewares/auth');
 
 
-const route = express.Router();
+const route = express.Router(); 
 
-
+ 
 route.post('/login', login)
 
 route.post('/register', register)
