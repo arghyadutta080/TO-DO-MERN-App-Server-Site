@@ -9,7 +9,7 @@ require('dotenv').config();
 
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://to-do-mern-app-by-arghya.netlify.app',
     methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
     credentials: true
 }));
