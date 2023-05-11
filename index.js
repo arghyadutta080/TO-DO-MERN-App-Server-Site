@@ -9,8 +9,7 @@ require('dotenv').config();
 
 
 app.use(cors({
-    origin: 'https://to-do-mern-app-client-site.vercel.app',
-    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    origin: true,
     credentials: true
 }));
 
