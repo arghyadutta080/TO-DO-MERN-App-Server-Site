@@ -9,14 +9,9 @@ require('dotenv').config();
 
 
 app.use(cors({
-    origin: true,
+    origin: "*",
     credentials: true
 }));
-
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-//     next();
-// });
 
 
 app.use(express.json())
@@ -39,7 +34,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 const port = process.env.PORT || 5000
 
-console.log(process.env.MONGO_URL)
+// console.log(process.env.MONGO_URL)
 
 app.listen(port, () => {
     console.log('Server is running')
